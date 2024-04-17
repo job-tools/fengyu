@@ -13,6 +13,9 @@ export default defineConfig({
             resolvers: [VantResolver()],
         }),
     ],
+    server: {
+        host: '0.0.0.0'
+    },
     resolve: {
         alias: {
             "@": resolve(__dirname, "./src"),
@@ -45,7 +48,7 @@ export default defineConfig({
                     // 能转换的属性，*表示所有属性，!border表示border不转
                     propList: ['*'],
                     // 指定不转换为视窗单位的类名，
-                    selectorBlackList: ['ignore-'],
+                    selectorBlackList: ['ignore-', ""],
                     // 最小转换的值，小于等于1不转
                     minPixelValue: 1,
                     // 是否在媒体查询的css代码中也进行转换，默认false

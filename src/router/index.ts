@@ -14,7 +14,11 @@ const router = createRouter({
             name: 'layout',
             component: () => import('@/layout/index.vue'),
             children: [
-
+                {
+                    path: '/',
+                    component: () => import('@/views/Index/Index.vue'),
+                    meta: { name1: '首页', name2: '首页' }
+                },
                 // {
                 //   path: 'role',
                 //   component: () => import('@/views/role/index.vue'),
