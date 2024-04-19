@@ -12,7 +12,14 @@ const router = createRouter({
       path: '/',
       name: 'layout',
       component: () => import('@/layout/index.vue'),
+
       children: [
+        {
+          path: '/',
+          component: () => import('@/views/Index/Index.vue'),
+          meta: { name1: '首页', name2: '首页' }
+        },
+
         {
           path: 'publishingLssues',
           component: () => import('@/views/publishingLssues/publishingLssues.vue'),
