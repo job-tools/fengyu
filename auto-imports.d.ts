@@ -11,8 +11,6 @@ declare global {
   const defineStore: typeof import('pinia')['defineStore']
   const effectScope: typeof import('vue')['effectScope']
   const EffectScope: typeof import('vue')['EffectScope']
-  const ElOption: typeof import('element-plus/es')['ElOption']
-  const ElSelect: typeof import('element-plus/es')['ElSelect']
   const getActivePinia: typeof import('pinia')['getActivePinia']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']

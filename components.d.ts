@@ -7,30 +7,20 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElOption: typeof import('element-plus/es')['ElOption']
-    ElSelect: typeof import('element-plus/es')['ElSelect']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     VanBackTop: typeof import('vant/es')['BackTop']
-    VanBadge: typeof import('vant/es')['Badge']
     VanButton: typeof import('vant/es')['Button']
     VanCell: typeof import('vant/es')['Cell']
     VanCellGroup: typeof import('vant/es')['CellGroup']
     VanDialog: typeof import('vant/es')['Dialog']
     VanField: typeof import('vant/es')['Field']
-    VanFloatingPanel: typeof import('vant/es')['FloatingPanel']
-    VanList: typeof import('vant/es')['List']
-    VanNavBar: typeof import('vant/es')['NavBar']
     VanSearch: typeof import('vant/es')['Search']
-    VanSwipe: typeof import('vant/es')['Swipe']
-    VanSwipeItem: typeof import('vant/es')['SwipeItem']
     VanTab: typeof import('vant/es')['Tab']
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
-    VanTabbarroute: typeof import('vant/es')['Tabbarroute']
     VanTabs: typeof import('vant/es')['Tabs']
-    VanTag: typeof import('vant/es')['Tag']
     VanUploader: typeof import('vant/es')['Uploader']
   }
 }
