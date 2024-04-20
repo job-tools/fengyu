@@ -40,13 +40,25 @@ const router = createRouter({
         //   meta: { name1: '角色管理', name2: '角色列表' }
         // },
         {
-          path: 'question/create',
-          component: () => import('@/views/publishingLssues/publishingLssues.vue'),
+          path: '/',
+          component: () => import('@/views/Index/Index.vue'),
+          meta: { name1: '首页', name2: '首页' }
+        }
+      ]
+    },
+    {
+      path: '/question',
+      name: 'question',
+      component: () => import('@/layout/index.vue'),
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/question/Create.vue'),
           meta: { name: '发布问题' }
         },
         {
-          path: 'question',
-          component: () => import('@/views/problemList/problemList.vue'),
+          path: 'list',
+          component: () => import('@/views/question/List.vue'),
           meta: { name: '问题列表' }
         }
       ]
