@@ -23,11 +23,7 @@ const router = createRouter({
       path: '/login/registry',
       component: () => import('@/views/login/registry.vue')
     },
-    // 个人中心
-    {
-      path: '/personalCenter',
-      component: () => import('@/views/personalCenter/index.vue')
-    },
+
 
     {
       path: '/',
@@ -39,6 +35,19 @@ const router = createRouter({
         //   component: () => import('@/views/role/index.vue'),
         //   meta: { name1: '角色管理', name2: '角色列表' }
         // },
+        // 首页
+        {
+          path: '/index',
+          alias: "/",
+          component: () => import('@/views/Index/Index.vue'),
+          meta: { name: '首页' }
+        },
+        // 我的
+        {
+          path: '/personalCenter',
+          component: () => import('@/views/personalCenter/index.vue'),
+          meta: { name: '我的' }
+        },
         {
           path: 'question/create',
           component: () => import('@/views/publishingLssues/publishingLssues.vue'),

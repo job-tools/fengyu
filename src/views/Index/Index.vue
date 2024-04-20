@@ -1,7 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { showToast } from 'vant';
+
+// 搜索框
 const value = ref('');
-const active = ref(true);
+const onSearch = (val: string) => {
+  showToast(val)
+  console.log("搜索框回车事件，输入框内的值：", val);
+
+};
+const onClickButton = () => {
+  showToast(value.value)
+  console.log("搜索框点击搜索事件，输入框内的值：", value.value);
+};
+
+// 菜单栏
+const active = ref(0);
 interface Tech {
   name: string;
   description: string;
@@ -178,14 +192,18 @@ const ListData = ref<List[]>([
 <template>
   <div class="Index">
     <!-- 搜索框 -->
-    <van-search v-model="value" shape="round" background="#4fc08d" placeholder="请输入搜索关键词" />
+    <van-search v-model="value" show-action placeholder="请输入搜索关键词" background="#4fc08d" @search="onSearch">
+      <template #action>
+        <div @click="onClickButton">搜索</div>
+      </template>
+    </van-search>
     <!-- 轮播图 -->
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+    <!--<van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
       <van-swipe-item>1</van-swipe-item>
       <van-swipe-item>2</van-swipe-item>
       <van-swipe-item>3</van-swipe-item>
       <van-swipe-item>4</van-swipe-item>
-    </van-swipe>
+    </van-swipe>-->
     <!-- 菜单栏 -->
     <van-tabs v-model:active="active" swipeable>
       <van-tab v-for="(item, index) in myArray" :title="item.name" :key="index">
@@ -204,24 +222,24 @@ const ListData = ref<List[]>([
             <div class="title">{{ item1.title }}</div>
             <div class="desc">{{ item1.desc }}</div>
             <span class="tags" v-for="(item2, index2) in item1.tags" :index="index2">
-              <van-button type="primary" size="mini" plain>{{ item2 }}</van-button
-              >&emsp;
+              <van-button type="primary" size="mini" plain>{{ item2 }}</van-button>&emsp;
             </span>
           </div>
           <div class="footer">
-            <span class="username">{{ item1.userName }}</span
-            >&emsp;
+            <span class="username">{{ item1.userName }}</span>&emsp;
             <span class="time">{{ item1.time }}</span>
           </div>
         </div>
       </van-tab>
     </van-tabs>
+    <van-back-top bottom="75px" />
   </div>
 </template>
 
 <style lang="less" scoped>
 .Index {
   margin-bottom: 50px;
+
   .card {
     width: 96%;
     margin: 5px auto;
@@ -236,18 +254,21 @@ const ListData = ref<List[]>([
       color: gray;
       font-size: 14px;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+
       .like {
         color: black;
       }
-      .read {
-      }
+
+      .read {}
+
       .handle {
         button {
           height: 20px;
         }
       }
     }
+
     .content {
       .title {
         color: #3385d0;
@@ -260,6 +281,7 @@ const ListData = ref<List[]>([
         line-height: 25px;
         font-size: 15px;
       }
+
       .desc {
         font-size: 14px;
         color: #787c7f;
@@ -271,23 +293,28 @@ const ListData = ref<List[]>([
         word-break: break-all;
         line-height: 20px;
       }
+
       .tags {
         button {
           height: 20px;
         }
       }
     }
+
     .footer {
       font-size: 12px;
       float: right;
+
       .username {
         color: green;
       }
+
       .time {
         color: gray;
       }
     }
   }
+
   .my-swipe .van-swipe-item {
     color: #fff;
     font-size: 20px;
@@ -295,10 +322,20 @@ const ListData = ref<List[]>([
     text-align: center;
     background-color: #39a9ed;
   }
-  ::v-deep .van-tabs__wrap {
+
+  ::v-deep .van-search {
     position: sticky;
     top: 0;
     z-index: 1;
   }
+
+  ::v-deep .van-tabs__wrap {
+    position: sticky;
+    // top: 0;
+    top: 54px;
+    z-index: 1;
+  }
+
+
 }
 </style>

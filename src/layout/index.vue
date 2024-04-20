@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 
-const active = ref('home');
-const router = useRouter();
+// 当前路由
+const active = ref('Dis');
 
-const JumpFn = (path: string) => {
-  router.push(path);
-};
+// 徽标
+const badge = ref(5);
+
 </script>
 <template>
   <section class="layout">
     <!-- 主体 -->
-    <main v-waterMarker="{ text: '千锋教育版权所有', textColor: 'rgba(180, 180, 180, 0.4)' }">
+    <main>
       <section class="content">
         <router-view v-slot="{ Component }">
           <transition appear name="fade-transform" mode="out-in">
@@ -24,12 +23,15 @@ const JumpFn = (path: string) => {
       <!-- 内容 -->
       <!-- 底部 -->
       <van-tabbar v-model="active">
-        <van-tabbar-item name="wap-home" icon="wap-home" @click="JumpFn('/')">首页</van-tabbar-item>
-        <van-tabbar-item name="like" icon="like" @click="JumpFn('/xxx')">关注</van-tabbar-item>
-        <van-tabbar-item name="comment" icon="comment" @click="JumpFn('/xxx')">消息</van-tabbar-item>
-        <van-tabbar-item name="contact" icon="contact" @click="JumpFn('/xxx')">我的</van-tabbar-item>
+        <van-tabbar-item icon="wap-home" to="/">问题大厅</van-tabbar-item>
+        <van-tabbar-item icon="comment" :badge="badge">
+          消息
+        </van-tabbar-item>
+        <van-tabbar-item icon="contact" to="/personalCenter">我的</van-tabbar-item>
       </van-tabbar>
       <!-- 底部 -->
+
+
     </main>
     <!-- 主体 -->
   </section>

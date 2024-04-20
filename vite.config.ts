@@ -17,24 +17,24 @@ export default defineConfig({
             include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
             // global imports to register
             imports: [
-              // 插件预设支持导入的api
-              'vue',
-              'vue-router',
-              'pinia',
-              // 自定义导入的api
+                // 插件预设支持导入的api
+                'vue',
+                'vue-router',
+                'pinia',
+                // 自定义导入的api
             ],
             // Generate corresponding .eslintrc-auto-import.json file.
             // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
             eslintrc: {
-              enabled: true, // Default `false`
-              filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-              globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+                enabled: true, // Default `false`
+                filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+                globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
             },
             // Filepath to generate corresponding .d.ts file.
             // Defaults to './auto-imports.d.ts' when `typescript` is installed locally.
             // Set `false` to disable.
             dts: './auto-imports.d.ts',
-          }),
+        }),
     ],
     resolve: {
         alias: {
@@ -64,18 +64,18 @@ export default defineConfig({
         strictPort: false,
         /** 接口代理 */
         proxy: {
-        //   "/api/v1": {
-        //     target: "https://mock.mengxuegu.com/mock/63218b5fb4c53348ed2bc212",
-        //     ws: true,
-        //     /** 是否允许跨域 */
-        //     changeOrigin: true
-        //   }
+            //   "/api/v1": {
+            //     target: "https://mock.mengxuegu.com/mock/63218b5fb4c53348ed2bc212",
+            //     ws: true,
+            //     /** 是否允许跨域 */
+            //     changeOrigin: true
+            //   }
         },
         /** 预热常用文件，提高初始页面加载速度 */
         warmup: {
-          clientFiles: ["./src/layouts/**/*.vue"]
+            clientFiles: ["./src/layouts/**/*.vue"]
         }
-      },
+    },
     css: {
         postcss: {
             plugins: [
